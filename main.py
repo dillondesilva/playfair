@@ -1,7 +1,7 @@
 frequencies = {}
 
 # Calculating the mean
-def calcMean (dataset):
+def calcMean ():
   fx = 0
   for entry in frequencies:
     fx += entry * frequencies[entry]
@@ -9,11 +9,11 @@ def calcMean (dataset):
   mean = fx / len(frequencies) 
   return mean
 
-def calcMedian (dataset):
+def calcMedian ():
   // This is a stub
 
 # Calculating Mode
-def calcMode (dataset):
+def calcMode ():
   mode = []
   current_modal_level = None
   for entry in frequencies:
@@ -26,11 +26,20 @@ def calcMode (dataset):
 
   return mode
 
+# Highest score minus lowest score
+def calcRange ():
+  max = 0
+  min = None
+  for entry in frequencies:
+    if entry > max:
+      max = entry
+    if min == None:
+      min = entry
+    elif entry < min:
+      min = entry
 
-
-
-def calcRange (dataset):
-  // This is a stub
+  range = max - min
+  return range
 
 def calcUppQuartile (dataset):
   // This is a stub
