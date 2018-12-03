@@ -1,5 +1,6 @@
 frequencies = {}
 
+# Calculating the mean
 def calcMean (dataset):
   fx = 0
   for entry in frequencies:
@@ -11,8 +12,22 @@ def calcMean (dataset):
 def calcMedian (dataset):
   // This is a stub
 
+# Calculating Mode
 def calcMode (dataset):
-  // This is a stub
+  mode = []
+  current_modal_level = None
+  for entry in frequencies:
+    if frequencies[entry] > 1 and frequencies[entry] > current_modal_level:
+      mode = [entry]
+      current_modal_level = entry
+    elif frequencies[entry] > 1 and frequencies[entry] == current_modal_level:
+      mode.append(entry)
+      current_modal_level = entry
+
+  return mode
+
+
+
 
 def calcRange (dataset):
   // This is a stub
