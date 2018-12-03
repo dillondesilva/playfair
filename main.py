@@ -1,7 +1,12 @@
 frequencies = {}
 
 def calcMean (dataset):
-  // This is a stub
+  fx = 0
+  for entry in frequencies:
+    fx += entry * frequencies[entry]
+  
+  mean = fx / len(frequencies) 
+  return mean
 
 def calcMedian (dataset):
   // This is a stub
