@@ -1,4 +1,4 @@
-# playfair
+# Playfair
 
 ## Concept
 
