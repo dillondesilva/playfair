@@ -94,8 +94,13 @@ def calcInterQuartile ():
   iqr = q3 - q1
   return iqr
 
-def calcStandardDevo ():
-  # This is a stub
+# def calcStandardDevo ():
+#   list_of_vals = []
+#   for entry in frequencies:
+#     for num in range(0, frequencies[entry]):
+#       list_of_vals.append(entry)
+
+#   return statistics.stdev(list_of_vals)
 
 raw_data = raw_input("New numerical entry: ")
 
@@ -116,3 +121,4 @@ print('Range:', calcRange())
 print('Upper Quartile:', calcUppQuartile())
 print('Lower Quartile:', calcLowQuartile())
 print('Interquartile Range:', calcInterQuartile())
+# print('Standard Deviation:', calcStandardDevo())
