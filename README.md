@@ -8,7 +8,6 @@ Users can enter a numerical data set and the program returns the mean, median, r
 
 - Copy the following source code
 ```python
-from __future__ import division
 import math
 
 frequencies = {}
