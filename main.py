@@ -1,4 +1,6 @@
 from __future__ import division
+import math
+
 frequencies = {}
 
 # Calculating the mean
@@ -26,6 +28,16 @@ def calcMedian ():
     return sorted(list_of_vals)[n//2]
   else:
     return sum(sorted(list_of_vals)[n//2-1:n//2+1])/2.0
+
+# Calculating the quartile medians
+def calcQMedian (vals):
+  n = len( vals)
+  if n < 1:
+    return None
+  if n % 2 == 1:
+    return sorted(vals)[n//2]
+  else:
+    return sum(sorted(vals)[n//2-1:n//2+1])/2.0
 
 # Calculating Mode
 def calcMode ():
@@ -56,17 +68,28 @@ def calcRange ():
   range = max - min
   return range
 
-def calcUppQuartile (dataset):
-  # This is a stub
-  return ''
+def calcUppQuartile ():
+  list_of_vals = []
+  for entry in frequencies:
+    for num in range(0, frequencies[entry]):
+      list_of_vals.append(entry)
 
-def calcLowQuartile (dataset):
-  return ''
-  # This is a stub
+  mid_idx = int(math.ceil(len(list_of_vals) / 2))
+  return(list_of_vals[mid_idx:])
 
-def calcInterQuartile (dataset):
-  # This is a stub
-  return ''
+def calcLowQuartile ():
+  list_of_vals = []
+  for entry in frequencies:
+    for num in range(0, frequencies[entry]):
+      list_of_vals.append(entry)
+  mid_idx = int(math.ceil(len(list_of_vals) / 2))
+  return(list_of_vals[0:mid_idx])
+
+def calcInterQuartile ():
+  q3 = calcQMedian(calcUppQuartile())
+  q1 = calcQMedian(calcLowQuartile())
+  iqr = q3 - q1
+  return iqr
 
 raw_data = raw_input("New numerical entry: ")
 
@@ -84,3 +107,6 @@ print('Mean:', calcMean())
 print('Median:', calcRange())
 print('Mode:', calcMode())
 print('Range:', calcRange())
+print('Upper Quartile:', calcUppQuartile())
+print('Lower Quartile:', calcLowQuartile())
+print('Interquartile Range:', calcInterQuartile())
