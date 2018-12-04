@@ -46,7 +46,7 @@ def calcMode ():
   for entry in frequencies:
     if frequencies[entry] > 1 and frequencies[entry] > current_modal_level:
       mode = [entry]
-      current_modal_level = entry
+      current_modal_leve4l = entry
     elif frequencies[entry] > 1 and frequencies[entry] == current_modal_level:
       mode.append(entry)
       current_modal_level = entry
@@ -68,6 +68,7 @@ def calcRange ():
   range = max - min
   return range
 
+# Calculating Upper Quartile
 def calcUppQuartile ():
   list_of_vals = []
   for entry in frequencies:
@@ -77,6 +78,7 @@ def calcUppQuartile ():
   mid_idx = int(math.ceil(len(list_of_vals) / 2))
   return(list_of_vals[mid_idx:])
 
+# Calculating Lower Quartile
 def calcLowQuartile ():
   list_of_vals = []
   for entry in frequencies:
@@ -85,6 +87,7 @@ def calcLowQuartile ():
   mid_idx = int(math.ceil(len(list_of_vals) / 2))
   return(list_of_vals[0:mid_idx])
 
+# Calculating Inter Quartile
 def calcInterQuartile ():
   q3 = calcQMedian(calcUppQuartile())
   q1 = calcQMedian(calcLowQuartile())
