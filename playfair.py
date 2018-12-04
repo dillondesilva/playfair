@@ -1,4 +1,3 @@
-from __future__ import division
 import math
 
 frequencies = {}
@@ -87,6 +86,17 @@ def calcLowQuartile ():
   mid_idx = int(math.ceil(len(list_of_vals) / 2))
   return(sorted(list_of_vals[0:mid_idx]))
 
+# Calculating Mean for Standard Deviation
+def calcMeanDev (vals):
+  fx = 0
+  sum_of_f = 0
+  for entry in vals:
+    fx += entry
+    sum_of_f += 1 
+  
+  mean = fx / sum_of_f
+  return mean
+
 # Calculating Inter Quartile
 def calcInterQuartile ():
   q3 = calcQMedian(calcUppQuartile())
@@ -94,15 +104,24 @@ def calcInterQuartile ():
   iqr = q3 - q1
   return iqr
 
-# def calcStandardDevo ():
-#   list_of_vals = []
-#   for entry in frequencies:
-#     for num in range(0, frequencies[entry]):
-#       list_of_vals.append(entry)
-
-#   return statistics.stdev(list_of_vals)
-
 raw_data = raw_input("New numerical entry: ")
+
+# Calculating standard deviation
+def calcStandardDev ():
+  mean = calcMean()
+
+  list_of_vals = []
+  new_vals = []
+  for entry in frequencies:
+    for num in range(0, frequencies[entry]):
+      list_of_vals.append(entry) 
+  
+  for val in list_of_vals:
+    new_vals.append((val - mean) ** 2)
+
+  sd = calcMeanDev(new_vals)
+  return sd
+
 
 while raw_data:
   if raw_data != '':
@@ -121,4 +140,4 @@ print('Range:', calcRange())
 print('Upper Quartile:', calcUppQuartile())
 print('Lower Quartile:', calcLowQuartile())
 print('Interquartile Range:', calcInterQuartile())
-# print('Standard Deviation:', calcStandardDevo())
+print('Standard Deviation:', calcStandardDev())
