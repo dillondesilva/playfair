@@ -76,7 +76,7 @@ def calcUppQuartile ():
       list_of_vals.append(entry)
 
   mid_idx = int(math.ceil(len(list_of_vals) / 2))
-  return(list_of_vals[mid_idx:])
+  return(sorted(list_of_vals[mid_idx:]))
 
 # Calculating Lower Quartile
 def calcLowQuartile ():
@@ -85,7 +85,7 @@ def calcLowQuartile ():
     for num in range(0, frequencies[entry]):
       list_of_vals.append(entry)
   mid_idx = int(math.ceil(len(list_of_vals) / 2))
-  return(list_of_vals[0:mid_idx])
+  return(sorted(list_of_vals[0:mid_idx]))
 
 # Calculating Inter Quartile
 def calcInterQuartile ():
@@ -93,6 +93,9 @@ def calcInterQuartile ():
   q1 = calcQMedian(calcLowQuartile())
   iqr = q3 - q1
   return iqr
+
+def calcStandardDevo ():
+  # This is a stub
 
 raw_data = raw_input("New numerical entry: ")
 
